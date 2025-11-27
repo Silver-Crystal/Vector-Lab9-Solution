@@ -116,11 +116,13 @@ void _cs295_vgt_int(__cs295_mask &vecResult, __cs295_vec_int &veca, __cs295_vec_
 
 // Return a mask of (veca < vecb) if vector lane active
 //  otherwise keep the old value
+// we can just switch around veca and vec b and call vgt
 void _cs295_vlt_float(__cs295_mask &vecResult, __cs295_vec_float &veca, __cs295_vec_float &vecb, __cs295_mask &mask);
 void _cs295_vlt_int(__cs295_mask &vecResult, __cs295_vec_int &veca, __cs295_vec_int &vecb, __cs295_mask &mask);
 
 // Return a mask of (veca == vecb) if vector lane active
 //  otherwise keep the old value
+// we can call the special not function on the or of gt a, b and lt a, b
 void _cs295_veq_float(__cs295_mask &vecResult, __cs295_vec_float &veca, __cs295_vec_float &vecb, __cs295_mask &mask);
 void _cs295_veq_int(__cs295_mask &vecResult, __cs295_vec_int &veca, __cs295_vec_int &vecb, __cs295_mask &mask);
 
